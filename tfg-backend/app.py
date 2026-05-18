@@ -24,27 +24,7 @@ def create_app():
 
         # Vue connection
         # app.py dentro de create_app()
-        CORS(app, 
-            supports_credentials=True, 
-            origins=[os.environ.get('FRONTEND_URL')],
-            allow_headers=["Content-Type", "Authorization", "X-CSRF-TOKEN"],
-            methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"])
-
-
-
-        
-
-        """
-        with app.app_context():
-            try:
-                from models.activity import Activity
-                from models.activityStream import ActivityStream
-                from models.predictionLog import PredictionLog
-                from models.user import User 
-                db.create_all()
-            except Exception as e:
-                print(f"❌ Error creando tablas: {e}")
-"""
+        CORS(app, resources={r"/api/*": {"origins": "https://tfg-public.vercel.app"}}, supports_credentials=True)
 
         from routes.activity_routes import activity_bp
         from routes.auth_routes import user_bp
