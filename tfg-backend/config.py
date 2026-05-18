@@ -15,3 +15,4 @@ class Config:
     JWT_ACCESS_COOKIE_PATH = '/'
     JWT_REFRESH_COOKIE_PATH = '/api/auth/refresh'
     JWT_COOKIE_HTTPONLY = True
+    JWT_COOKIE_SAMESITE = 'None'
