@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Newsreader';
+  src: url('./fonts/Newsreader.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Public sans';
+  src: url('./fonts/PublicSans.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/Inter.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+}
+
+@theme {
+  --font-headline: 'Newsreader', system-ui, serif;
+  --font-body: 'Public sans', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+
+  --color-primary: #14411a;
+  --color-primary-too-dark: #002106;
+  --color-primary-dark: #0a3913;
+  --color-primary-semi-light: #245027;
+  --color-primary-light: #bcf0b8;
+  --color-primary-ultra: #001803;
+
+  --color-secondary: #191970;
+  --color-secondary-too-dark: #0a0565;
+  --color-secondary-dark: #232479;
+  --color-secondary-semi-light: #3b3d90;
+  --color-secondary-light: #5355aa;
+
+  --color-tertiary: #4d1300;
+  --color-tertiary-too-dark: #390c00;
+  --color-tertiary-dark: #591c05;
+  --color-tertiary-semi-light: #773219;
+  --color-tertiary-light: #95482e;
+
+  --color-neutral: #5a5f62;
+  --color-neutral-light: #8d9194;
+  --color-neutral-back: #f6fafd;
+  --color-neutral-back2: #f0f4f7;
+  --color-neutral-back-auth: #e8ecef;
+
+  --color-light-green: #2c9237;
+  --color-light-yellow: #bbb94d;
+  --color-light-red: #852221;
+}
+
+.p-tooltip-arrow {
+  display: none !important;
+}
+
+.p-tooltip-text {
+  background-color: white !important;
+  width: auto;
+  max-width: 200px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+  white-space: normal !important;
+  border-radius: 10% !important;
+  padding: 10px !important;
+}
