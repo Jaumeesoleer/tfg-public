@@ -53,7 +53,7 @@ api.interceptors.response.use(
 function handleLogout() {
   localStorage.removeItem('user_cache')
   localStorage.removeItem('isLoggedIn')
-  router.push('/')
+  window.location.href = '/'
 }
 
 export default api
