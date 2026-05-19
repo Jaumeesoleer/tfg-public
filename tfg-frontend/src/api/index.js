@@ -41,8 +41,6 @@ api.interceptors.response.use(
           return Promise.reject(refreshError)
         }
       }
-    } else {
-      handleLogout()
     }
     return Promise.reject(error)
   },
