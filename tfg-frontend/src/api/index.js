@@ -6,9 +6,9 @@
 
 import axios from 'axios'
 import router from '@/router'
+import { useUserStore } from '../stores/user'
 
 const API_URL = import.meta.env.VITE_API_URL
-console.log(API_URL)
 const api = axios.create({
   baseURL: API_URL,
   withCredentials: true,
@@ -40,6 +40,8 @@ api.interceptors.response.use(
           handleLogout()
           return Promise.reject(refreshError)
         }
+      } else {
+        handleLogout()
       }
     }
     return Promise.reject(error)
@@ -49,7 +51,18 @@ api.interceptors.response.use(
  * Purga las banderas de estado in-memory y redirige defensivamente al corredor a la raíz de la SPA.
  */
 function handleLogout() {
+  localStorage.removeItem('user_cache')
   localStorage.removeItem('isLoggedIn')
+
+  try {
+    const userStore = useUserStore()
+    userStore.clearUser()
+  } catch (e) {
+    console.warn(
+      'Store de Pinia no disponible en este ciclo, caché de localStorage purgado con éxito.',
+    )
+  }
+
   router.push('/')
 }
 
