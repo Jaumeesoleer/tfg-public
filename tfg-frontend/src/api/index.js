@@ -53,16 +53,6 @@ api.interceptors.response.use(
 function handleLogout() {
   localStorage.removeItem('user_cache')
   localStorage.removeItem('isLoggedIn')
-
-  try {
-    const userStore = useUserStore()
-    userStore.clearUser()
-  } catch (e) {
-    console.warn(
-      'Store de Pinia no disponible en este ciclo, caché de localStorage purgado con éxito.',
-    )
-  }
-
   router.push('/')
 }
 
